@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جامعۃ المدینہ / مدرسہ پورٹل</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Urdu & English) -->
+    <link href="https://fonts.googleapis.com/css2?family=Jameel+Noori+Nastaleeq&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --primary-color: #0b5ed7;
+            --primary-hover: #0a58ca;
+            --accent-color: #198754;
+            --header-bg: linear-gradient(135deg, #0b5ed7, #198754);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-color: #dee2e6;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --primary-color: #3d8bfd;
+            --primary-hover: #6ea8fe;
+            --accent-color: #20c997;
+            --header-bg: linear-gradient(135deg, #1a365d, #065f46);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            --border-color: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Jameel Noori Nastaleeq', 'Poppins', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Top Controls Bar */
+        .top-controls {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            padding: 15px 5%;
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .control-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .control-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Header Section */
+        header {
+            background: var(--header-bg);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: var(--shadow);
+        }
+
+        header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid white;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Quick Binders (Principal & Developer) */
+        .quick-binders {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 5%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .binder-btn {
+            flex: 1;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            box-shadow: var(--shadow);
+            font-size: 1.1rem;
+        }
+
+        .binder-btn:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Main Container & Cards Grid */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: 2px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            outline: none;
+        }
+
+        .search-bar:focus {
+            border-color: var(--primary-color);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design Adjustments */
+        @media(max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .quick-binders {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <!-- Top Controls: Language, Dark Mode, APK Download -->
+    <div class="top-controls">
+        <button class="control-btn" id="langToggle" onclick="toggleLanguage()">
+            <i class="fa-solid fa-globe"></i> English
+        </button>
+        <button class="control-btn" id="themeToggle" onclick="toggleTheme()">
+            <i class="fa-solid fa-moon"></i> ڈارک موڈ
+        </button>
+        <button class="control-btn" style="background: var(--accent-color);" onclick="downloadAPK()">
+            <i class="fa-solid fa-download"></i> Download APK
+        </button>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <img src="https://via.placeholder.com/100" alt="Madrasa Logo">
+        <h1 id="siteTitle">جامعۃ المدینہ الاسلامیہ</h1>
+        <p id="siteTagline">دینی و عصری علوم کا بہترین مرکز</p>
+    </header>
+
+    <!-- Quick Binders (Principal & Developer) -->
+    <div class="quick-binders">
+        <a href="#principal" class="binder-btn" id="btnPrincipal">
+            <i class="fa-solid fa-user-tie"></i> مہتمم صاحب
+        </a>
+        <a href="#developer" class="binder-btn" id="btnDeveloper">
+            <i class="fa-solid fa-code"></i> ڈیویلپر پروفائل
+        </a>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="container">
+        <!-- Search Bar -->
+        <input type="text5" class="search-bar" id="searchBar" placeholder="یہاں تلاش کریں (کورس، کتاب، یا ایپ)...">
+
+        <h2 class="section-title" id="cardsHeading">تعلیمی بورڈز اور سروسز</h2>
+        
+        <!-- Cards Grid (Wifaq, AIOU, All Boards, Premium Apps, Tools) -->
+        <div class="cards-grid">
+            <div class="card" onclick="openCategory('Wifaq ul Madaris')">
+                <i class="fa-solid fa-book-quran"></i>
+                <h3>وفاق المدارس العربیہ</h3>
+                <p>مدرسے کے تمام درجے اور سلیبس</p>
+            </div>
+            <div class="card" onclick="openCategory('AIOU')">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h3>علامہ اقبال اوپن یونیورسٹی (AIOU)</h3>
+                <p>میٹرک، ایف اے اور بی اے کورسز</p>
+            </div>
+            <div class="card" onclick="openCategory('All Boards')">
+                <i class="fa-solid fa-school"></i>
+                <h3>آل بورڈز</h3>
+                <p>سکول اور کالج کے تعلیمی بورڈز</p>
+            </div>
+            <div class="card" onclick="openCategory('Premium Apps')">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <h3>پریمیم ایپس</h3>
+                <p>ضروری اور مفید موبائل ایپلیکیشنز</p>
+            </div>
+            <div class="card" onclick="openCategory('Digital Tools')">
+                <i class="fa-solid fa-toolbox"></i>
+                <h3>ڈیجیٹل ٹولز</h3>
+                <p>مطالعہ اور تحقیق کے لیے جدید ٹولز</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p id="footerText">&copy; 2026 جامعۃ المدینہ الاسلامیہ - جملہ حقوق محفوظ ہیں۔</p>
+    </footer>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Dark Mode Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeBtn = document.getElementById('themeToggle');
+            if (body.getAttribute('data-theme') === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i> لائٹ موڈ';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i> ڈارک موڈ';
+            }
+        }
+
+        // Language Switcher (Urdu <-> English)
+        let currentLang = 'ur';
+        function toggleLanguage() {
+            const siteTitle = document.getElementById('siteTitle');
+            const siteTagline = document.getElementById('siteTagline');
+            const btnPrincipal = document.getElementById('btnPrincipal');
+            const btnDeveloper = document.getElementById('btnDeveloper');
+            const cardsHeading = document.getElementById('cardsHeading');
+            const searchBar = document.getElementById('searchBar');
+            const footerText = document.getElementById('footerText');
+            const langToggle = document.getElementById('langToggle');
+
+            if (currentLang === 'ur') {
+                currentLang = 'en';
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', 'en');
+                langToggle.innerHTML = '<i class="fa-solid fa-globe"></i> اردو';
+                siteTitle.innerText = 'Jamia Al-Madina Al-Islamia';
+                siteTagline.innerText = 'The Best Center for Religious & Modern Education';
+                btnPrincipal.innerHTML = '<i class="fa-solid fa-user-tie"></i> Principal';
+                btnDeveloper.innerHTML = '<i class="fa-solid fa-code"></i> Developer Profile';
+                cardsHeading.innerText = 'Educational Boards & Services';
+                searchBar.placeholder = 'Search here (courses, books, apps)...';
+                footerText.innerHTML = '&copy; 2026 Jamia Al-Madina - All Rights Reserved.';
+            } else {
+                currentLang = 'ur';
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ur');
+                langToggle.innerHTML = '<i class="fa-solid fa-globe"></i> English';
+                siteTitle.innerText = 'جامعۃ المدینہ الاسلامیہ';
+                siteTagline.innerText = 'دینی و عصری علوم کا بہترین مرکز';
+                btnPrincipal.innerHTML = '<i class="fa-solid fa-user-tie"></i> مہتمم صاحب';
+                btnDeveloper.innerHTML = '<i class="fa-solid fa-code"></i> ڈیویلپر پروفائل';
+                cardsHeading.innerText = 'تعلیمی بورڈز اور سروسز';
+                searchBar.placeholder = 'یہاں تلاش کریں (کورس، کتاب، یا ایپ)...';
+                footerText.innerHTML = '&copy; 2026 جامعۃ المدینہ الاسلامیہ - جملہ حقوق محفوظ ہیں۔';
+            }
+        }
+
+        // Category Click Handler (Card Grading System Navigation placeholder)
+        function openCategory(categoryName) {
+            alert(categoryName + ' کا گریڈنگ سیکشن اوپن ہو رہا ہے...');
+            // یہاں آپ اگلے صفحات یا سب گریڈز کا لنک جوڑ سکتے ہیں
+        }
+
+        // Download APK / PWA Trigger
+        function downloadAPK() {
+            alert('مدرسہ ویب ایپ (APK) ڈاؤن لوڈ کرنے کا عمل شروع ہو رہا ہے...');
+            // یہاں PWA انسٹالیشن ایونٹ یا APK فائل کا ڈاؤن لوڈ لنک دیا جائے گا
+        }
+    </script>
+</body>
+</html>
