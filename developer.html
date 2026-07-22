@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ڈویلپر پروفائل - جامعہ عزیز المدارس</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">جامعہ عزیز المدارس</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">ہوم</a>
+                <a href="mohtamim.html">مہتمم</a>
+                <a href="developer.html" class="active">ڈویلپر</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="themeToggle" class="btn-toggle">🌙 ڈارک موڈ</button>
+                <button class="hamburger" id="hamburger">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Developer Profile Section -->
+    <main class="container" style="padding: 40px 0;">
+        <div class="profile-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 40px 20px; text-align: center; box-shadow: var(--shadow); max-width: 800px; margin: 0 auto;">
+            
+            <!-- Developer Photo -->
+            <img id="devPhoto" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Developer Photo" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-gold); margin-bottom: 20px;">
+            
+            <!-- Name & Location with Pin Icon -->
+            <h1 id="devName" style="font-family: 'Amiri', serif; color: var(--primary-color); font-size: 2.2rem; margin-bottom: 5px;">محمد ڈویلپر</h1>
+            <p id="devLocation" style="color: var(--accent-gold); font-weight: bold; margin-bottom: 20px; font-size: 1.1rem;">📍 پاکستان | ویب ڈویلپر</p>
+
+            <!-- Social Media Row -->
+            <div id="devSocial" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
+                <!-- Social links will load dynamically -->
+            </div>
+
+            <!-- About / Bio -->
+            <div style="text-align: right; margin-bottom: 30px; border-top: 1px solid var(--border-color); padding-top: 25px;">
+                <h2 style="color: var(--primary-color); font-family: 'Amiri', serif; margin-bottom: 15px;">میرے بارے میں (About)</h2>
+                <p id="devAbout" style="font-size: 1.1rem; line-height: 1.9; color: var(--text-color);">
+                    میں ایک پرجوش ویب ڈویلپر ہوں جس نے اس مدرسہ کی ڈیجیٹل موجودگی اور طلباء کے لیے اس مفت تعلیمی پلیٹ فارم کو ڈیزائن اور تیار کیا ہے۔
+                </p>
+            </div>
+
+            <!-- Skills -->
+            <div style="text-align: right; margin-bottom: 30px; border-top: 1px solid var(--border-color); padding-top: 25px;">
+                <h2 style="color: var(--primary-color); font-family: 'Amiri', serif; margin-bottom: 15px;">مہارتیں (Skills)</h2>
+                <div id="devSkills" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <span class="nisab-chip">HTML5 / CSS3</span>
+                    <span class="nisab-chip">JavaScript (ES6)</span>
+                    <span class="nisab-chip">Git & GitHub</span>
+                    <span class="nisab-chip">Responsive Design</span>
+                </div>
+            </div>
+
+            <!-- Khidmaat (Work Done) -->
+            <div style="text-align: right; border-top: 1px solid var(--border-color); padding-top: 25px;">
+                <h2 style="color: var(--primary-color); font-family: 'Amiri', serif; margin-bottom: 15px;">خدمات و پروجیکٹس (Khidmaat)</h2>
+                <ul id="devKhidmaat" style="padding-right: 20px; font-size: 1.1rem; line-height: 1.8;">
+                    <li>جامعہ عزیز المدارس کی آفیشل بائی لنگول ویب سائٹ کی تیاری</li>
+                    <li>موبایل فرینڈلی اور زیرو کاسٹ اسٹیٹک آرکیٹیکچر کا نفاذ</li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3>عزیز المدارس</h3>
+                <p>تمام حقوق محفوظ ہیں © 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main Logic Script -->
+    <script src="data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof siteData !== 'undefined' && siteData.developer) {
+                const d = siteData.developer;
+                document.getElementById('devName').textContent = d.name;
+                document.getElementById('devPhoto').src = d.photo;
+                document.getElementById('devLocation').textContent = `📍 ${d.location}`;
+                document.getElementById('devAbout').textContent = d.about;
+                
+                // Render Skills
+                const skillsContainer = document.getElementById('devSkills');
+                if (d.skills && d.skills.length > 0) {
+                    skillsContainer.innerHTML = d.skills.map(skill => `<span class="nisab-chip">${skill}</span>`).join('');
+                }
+
+                // Render Khidmaat
+                const khidmaatList = document.getElementById('devKhidmaat');
+                if (d.khidmaat && d.khidmaat.length > 0) {
+                    khidmaatList.innerHTML = d.khidmaat.map(item => `<li>${item}</li>`).join('');
+                }
+            }
+
+            // Theme toggle script
+            const themeToggle = document.getElementById('themeToggle');
+            themeToggle.onclick = () => {
+                const html = document.documentElement;
+                const currentTheme = html.getAttribute('data-theme');
+                if (currentTheme === 'light') {
+                    html.setAttribute('data-theme', 'dark');
+                    themeToggle.textContent = '☀️ لائٹ موڈ';
+                } else {
+                    html.setAttribute('data-theme', 'light');
+                    themeToggle.textContent = '🌙 ڈارک موڈ';
+                }
+            };
+
+            // Mobile menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            hamburger.onclick = () => {
+                navLinks.classList.toggle('active');
+            };
+        });
+    </script>
+</body>
+</html>
