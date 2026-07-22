@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl" data-theme="light">
+<html lang="en" dir="ltr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جامعہ عزیز المدارس - مرکزی صفحہ</title>
-    <!-- Google Fonts for Urdu & English -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <title>Jamia Aziz-ul-Madaris | Educational Resources</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,15 +14,17 @@
     <!-- Navbar -->
     <header class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">جامعہ عزیز المدارس</a>
-            <nav class="nav-links" id="navLinks">
-                <a href="index.html" class="active">ہوم</a>
-                <a href="mohtamim.html">مہتمم</a>
-                <a href="developer.html">ڈویلپر</a>
-            </nav>
+            <a href="index.html" class="logo">Aziz-ul-Madaris</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#categories">Books</a></li>
+                <li><a href="#announcement">Notice</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="developer.html">Developer</a></li>
+            </ul>
             <div class="nav-actions">
-                <button id="langToggle" class="btn-toggle">English</button>
-                <button id="themeToggle" class="btn-toggle">🌙 ڈارک موڈ</button>
+                <button id="themeToggle" class="btn-toggle">🌙 Dark Mode</button>
                 <button class="hamburger" id="hamburger">☰</button>
             </div>
         </div>
@@ -30,131 +32,135 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <img id="heroImage" src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=80" alt="Madrasa Photo" class="hero-img">
-            <h1 id="madrasaName">جامعہ عزیز المدارس پاکستان</h1>
-            <p id="tagline">دین اور عصری علوم کا حسین امتزاج - مفت تعلیمی وسائل کا مرکز</p>
-            
-            <!-- Two Pill Buttons -->
+        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+            <img src="" id="heroImg" alt="Jamia Photo" class="hero-img">
+            <h1 id="siteName">Jamia Aziz-ul-Madaris Pakistan</h1>
+            <p id="siteTagline">A Perfect Blend of Traditional Islamic and Modern Sciences</p>
             <div class="pill-buttons-row">
-                <a href="mohtamim.html" class="pill-btn">👤 مہتمم پروفائل</a>
-                <a href="developer.html" class="pill-btn">💻 ڈویلپر پروفائل</a>
+                <a href="mohtamim.html" class="pill-btn">👤 Principal Profile</a>
+                <a href="developer.html" class="pill-btn">💻 Developer Profile</a>
             </div>
         </div>
     </section>
 
-    <!-- Search Bar -->
-    <section class="search-section">
+    <!-- Search Section -->
+    <div class="search-section">
         <div class="container">
-            <input type="text" id="mainSearch" placeholder="کتب، کورسز یا مضامین تلاش کریں..." class="search-input">
+            <input type="text" id="globalSearch" placeholder="Search books, courses or announcements..." class="search-input">
         </div>
-    </section>
+    </div>
 
-    <!-- Categories Grid -->
-    <section class="categories-section">
-        <div class="container">
-            <h2>زمرہ جات (Categories)</h2>
-            <div class="categories-grid" id="categoriesGrid">
-                <!-- Dynamically loaded from data.js -->
-            </div>
+    <!-- Categories / Books Section -->
+    <section id="categories" class="container">
+        <h2>Categories & Books</h2>
+        <div class="categories-grid" id="categoriesGrid">
+            <!-- Dynamically loaded from data.js -->
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about-section">
-        <div class="container">
-            <h2>مدرسہ کا تعارف</h2>
-            <p id="aboutText">جامعہ عزیز المدارس کا قیام دینی و عصری علوم کے فروغ، طلباء کی بہترین اخلاقی و علمی تربیت اور انہیں جدید تقاضوں کے مطابق زیورِ تعلیم سے آراستہ کرنے کے لیے عمل میں لایا گیا ہے۔</p>
+    <section class="container">
+        <h2>About Jamia</h2>
+        <div class="about-box">
+            <p id="siteAbout">Jamia Aziz-ul-Madaris is dedicated to providing high-quality Islamic and contemporary education...</p>
         </div>
     </section>
 
-    <!-- Nisab / Courses Section -->
-    <section class="nisab-section">
-        <div class="container">
-            <h2>نصابِ تعلیم و درجات</h2>
-            <div class="nisab-chips" id="nisabChips">
-                <!-- Dynamically loaded -->
-            </div>
+    <!-- Nisab / Courses Chips -->
+    <section class="container">
+        <h2>Syllabus & Grades</h2>
+        <div class="nisab-chips" id="nisabChips">
+            <!-- Dynamically loaded -->
         </div>
     </section>
 
-    <!-- Announcements -->
-    <section class="announcement-section">
-        <div class="container">
-            <div class="announcement-box">
-                <h3>📢 اہم اعلانات / روزانہ حدیث</h3>
-                <p id="announcementText">داخلے جاری ہیں! تمام طلباء مقررہ وقت پر اپنے کاغذات جمع کروائیں۔</p>
-            </div>
+    <!-- Announcement / Notice Section -->
+    <section id="announcement" class="container">
+        <h2>Important Notice</h2>
+        <div class="announcement-box">
+            <h3>📢 Daily Hadith & Announcement</h3>
+            <p id="siteAnnouncement">Admissions are open for the new academic year!</p>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery-section">
-        <div class="container">
-            <h2>گیلری</h2>
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Dynamically loaded -->
-            </div>
+    <section id="gallery" class="container">
+        <h2>Gallery</h2>
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Dynamically loaded -->
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-content">
-            <div class="footer-info">
-                <h3>عزیز المدارس</h3>
-                <p>تمام حقوق محفوظ ہیں © 2026</p>
-            </div>
-            <div class="footer-links" id="socialLinks">
-                <!-- Social links -->
-            </div>
+            <h3 id="footerTitle">Jamia Aziz-ul-Madaris</h3>
+            <p>All Rights Reserved © 2026</p>
         </div>
     </footer>
 
     <!-- Main Logic Script -->
     <script src="data.js"></script>
     <script>
-        // Basic rendering logic using data.js
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof siteData !== 'undefined') {
-                document.getElementById('madrasaName').textContent = siteData.name;
-                document.getElementById('tagline').textContent = siteData.tagline;
-                document.getElementById('aboutText').textContent = siteData.about;
-                document.getElementById('announcementText').textContent = siteData.announcement;
-                document.getElementById('heroImage').src = siteData.heroImage;
+                document.getElementById('siteName').textContent = siteData.name;
+                document.getElementById('siteTagline').textContent = siteData.tagline;
+                document.getElementById('heroImg').src = siteData.heroImage;
+                document.getElementById('siteAbout').textContent = siteData.about;
+                document.getElementById('siteAnnouncement').textContent = siteData.announcement;
+                document.getElementById('footerTitle').textContent = siteData.name;
 
                 // Render Categories
                 const catGrid = document.getElementById('categoriesGrid');
-                siteData.categories.forEach(cat => {
-                    const card = document.createElement('div');
-                    card.className = 'cat-card';
-                    card.innerHTML = `
-                        <div class="cat-icon">${cat.icon || '📚'}</div>
+                catGrid.innerHTML = siteData.categories.map(cat => `
+                    <div class="cat-card" onclick="window.location.href='category.html?cat=${cat.id}'">
+                        <div class="cat-icon">${cat.icon}</div>
                         <h3>${cat.nameUr}</h3>
                         <p>${cat.nameEn}</p>
-                    `;
-                    card.onclick = () => {
-                        window.location.href = `category.html?cat=${cat.id}`;
-                    };
-                    catGrid.appendChild(card);
-                });
+                    </div>
+                `).join('');
+
+                // Render Nisab Chips
+                const nisabContainer = document.getElementById('nisabChips');
+                nisabContainer.innerHTML = siteData.nisab.map(n => `
+                    <div class="nisab-chip">${n.name}</div>
+                `).join('');
+
+                // Render Gallery
+                const galleryGrid = document.getElementById('galleryGrid');
+                galleryGrid.innerHTML = siteData.gallery.map(img => `
+                    <div class="gallery-item">
+                        <img src="${img}" alt="Gallery Image">
+                    </div>
+                `).join('');
+
+                // Global Search functionality
+                const searchInput = document.getElementById('globalSearch');
+                searchInput.oninput = (e) => {
+                    const term = e.target.value.toLowerCase();
+                    const cards = catGrid.getElementsByClassName('cat-card');
+                    Array.from(cards).forEach(card => {
+                        const text = card.textContent.toLowerCase();
+                        card.style.display = text.includes(term) ? 'block' : 'none';
+                    });
+                };
             }
 
-            // Theme & Language toggles
+            // Theme Toggle
             const themeToggle = document.getElementById('themeToggle');
             themeToggle.onclick = () => {
                 const html = document.documentElement;
-                const currentTheme = html.getAttribute('data-theme');
-                if (currentTheme === 'light') {
+                if (html.getAttribute('data-theme') === 'light') {
                     html.setAttribute('data-theme', 'dark');
-                    themeToggle.textContent = '☀️ لائٹ موڈ';
+                    themeToggle.textContent = '☀️ Light Mode';
                 } else {
                     html.setAttribute('data-theme', 'light');
-                    themeToggle.textContent = '🌙 ڈارک موڈ';
+                    themeToggle.textContent = '🌙 Dark Mode';
                 }
             };
 
-            // Mobile menu toggle
+            // Mobile Menu
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('navLinks');
             hamburger.onclick = () => {
