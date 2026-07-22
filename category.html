@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلیمی وسائل - جامعہ عزیز المدارس</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">جامعہ عزیز المدارس</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">ہوم</a>
+                <a href="mohtamim.html">مہتمم</a>
+                <a href="developer.html">ڈویلپر</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="themeToggle" class="btn-toggle">🌙 ڈارک موڈ</button>
+                <button class="hamburger" id="hamburger">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header Title & Search -->
+    <section class="hero" style="padding: 25px 20px;">
+        <h1 id="catTitle" style="font-size: 1.8rem; margin-bottom: 10px;">زمرہ جات اور کتب</h1>
+        <input type="text" id="itemSearch" placeholder="اس زمرے میں کتاب یا مواد تلاش کریں..." class="search-input" style="max-width: 500px; margin-top: 10px;">
+    </section>
+
+    <!-- Sub-grades or Items List Container -->
+    <main class="container" style="padding: 30px 0;">
+        <!-- Sub-grades Container (if applicable) -->
+        <div id="gradesContainer" style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 30px;">
+            <!-- Loaded dynamically -->
+        </div>
+
+        <!-- Items Grid -->
+        <div id="itemsGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+            <!-- Items loaded dynamically -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3>عزیز المدارس</h3>
+                <p>تمام حقوق محفوظ ہیں © 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main Logic Script -->
+    <script src="data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const catId = urlParams.get('cat');
+            const gradeId = urlParams.get('grade');
+
+            if (typeof siteData !== 'undefined' && catId) {
+                const category = siteData.categories.find(c => c.id === catId);
+                if (category) {
+                    document.getElementById('catTitle').textContent = category.nameUr;
+
+                    // If category has sub-grades and no grade is selected yet
+                    const gradesContainer = document.getElementById('gradesContainer');
+                    if (category.grades && category.grades.length > 0 && !gradeId) {
+                        gradesContainer.innerHTML = category.grades.map(g => `
+                            <a href="category.html?cat=${catId}&grade=${g.id}" class="pill-btn" style="font-size: 0.95rem; padding: 8px 18px;">${g.nameUr}</a>
+                        `).join('');
+                    } else {
+                        gradesContainer.style.display = 'none';
+                    }
+
+                    // Filter and render items
+                    const itemsGrid = document.getElementById('itemsGrid');
+                    let filteredItems = siteData.items.filter(item => item.categorySlug === catId);
+                    if (gradeId) {
+                        filteredItems = filteredItems.filter(item => item.gradeId === gradeId);
+                    }
+
+                    if (filteredItems.length > 0) {
+                        itemsGrid.innerHTML = filteredItems.map(item => `
+                            <div class="cat-card" style="text-align: right; display: flex; flex-direction: column; justify-content: space-between;">
+                                <div>
+                                    <img src="${item.coverImage || 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=300&q=80'}" alt="Cover" style="width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+                                    <h3 style="font-size: 1.1rem; margin-bottom: 5px;">${item.title}</h3>
+                                    <p style="font-size: 0.85rem; margin-bottom: 15px;">مصنف: ${item.author || 'غیر منسروب'}</p>
+                                </div>
+                                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                                    <a href="${item.driveLink}" target="_blank" class="pill-btn" style="flex: 1; text-align: center; padding: 6px; font-size: 0.9rem;">پڑھیں</a>
+                                    <a href="${item.driveLink}" target="_blank" class="pill-btn" style="flex: 1; text-align: center; padding: 6px; font-size: 0.9rem; background-color: var(--primary-color); color: #fff;">ڈاؤن لوڈ</a>
+                                </div>
+                            </div>
+                        `).join('');
+                    } else {
+                        itemsGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #777;">اس زمرے میں فی الحال کوئی مواد موجود نہیں ہے۔</p>`;
+                    }
+
+                    // Search functionality within items
+                    const searchInput = document.getElementById('itemSearch');
+                    searchInput.oninput = (e) => {
+                        const term = e.target.value.toLowerCase();
+                        const cards = itemsGrid.getElementsByClassName('cat-card');
+                        Array.from(cards).forEach(card => {
+                            const text = card.textContent.toLowerCase();
+                            card.style.display = text.includes(term) ? 'flex' : 'none';
+                        });
+                    };
+                }
+            }
+
+            // Theme toggle script
+            const themeToggle = document.getElementById('themeToggle');
+            themeToggle.onclick = () => {
+                const html = document.documentElement;
+                const currentTheme = html.getAttribute('data-theme');
+                if (currentTheme === 'light') {
+                    html.setAttribute('data-theme', 'dark');
+                    themeToggle.textContent = '☀️ لائٹ موڈ';
+                } else {
+                    html.setAttribute('data-theme', 'light');
+                    themeToggle.textContent = '🌙 ڈارک موڈ';
+                }
+            };
+
+            // Mobile menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            hamburger.onclick = () => {
+                navLinks.classList.toggle('active');
+            };
+        });
+    </script>
+</body>
+</html>
