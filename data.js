@@ -1,20 +1,18 @@
 const siteData = {
-    // 1. General Site Info
-    name: "جامعہ عزیز المدارس پاکستان",
-    tagline: "دین اور عصری علوم کا حسین امتزاج - مفت تعلیمی وسائل کا مرکز",
+    name: "Jamia Aziz-ul-Madaris Pakistan",
+    tagline: "A Perfect Blend of Traditional Islamic and Modern Sciences",
     heroImage: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=80",
-    about: "جامعہ عزیز المدارس کا قیام دینی و عصری علوم کے فروغ، طلباء کی بہترین اخلاقی و علمی تربیت اور انہیں جدید تقاضوں کے مطابق زیورِ تعلیم سے آراستہ کرنے کے لیے عمل میں لایا گیا ہے۔",
-    announcement: "داخلے جاری ہیں! تمام طلباء مقررہ وقت پر اپنے کاغذات جامعہ کے دفتر میں جمع کروائیں۔",
+    about: "Jamia Aziz-ul-Madaris is dedicated to providing high-quality Islamic and contemporary education, fostering moral excellence, and preparing students to meet modern intellectual challenges.",
+    announcement: "Admissions are open for the new academic year! All students are requested to submit their documents at the office.",
 
-    // 2. Mohtamim Profile
     mohtamim: {
-        name: "حضرت مولانا مفتی صاحب",
+        name: "Mufti Sahib",
         photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80",
-        taaruf: "آپ جامعہ عزیز المدارس کے بانی اور مہتمم ہیں۔ آپ نے دینی علوم کی ترویج، فقہ اسلامی کی اشاعت اور طلباء کی اخلاقی و روحانی تربیت میں اپنی زندگی وقف کر رکھی ہے۔",
+        taaruf: "Founder and Principal of Jamia Aziz-ul-Madaris, dedicated to Islamic education, Fiqh, and spiritual guidance for over two decades.",
         degrees: [
-            "سنہ فراغت: وفاق المدارس العربيۃ پاکستان",
-            "تخصص فی الفقہ الاسلامی والافتاء",
-            "تدریس و افتاء کا 20 سال سے زائد کا تجربہ"
+            "Sanah Faraghat: Wifaq-ul-Madaris Al-Arabia Pakistan",
+            "Takhassus fil-Fiqh wal-Ifta",
+            "Over 20 Years of Teaching & Academic Experience"
         ],
         social: {
             whatsapp: "https://wa.me/",
@@ -22,16 +20,15 @@ const siteData = {
         }
     },
 
-    // 3. Developer Profile
     developer: {
-        name: "محمد ڈویلپر",
+        name: "Developer Profile",
         photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
-        location: "پاکستان",
-        about: "میں ایک پرجوش ویب ڈویلپر ہوں جس نے اس مدرسہ کی ڈیجیٹل موجودگی اور طلباء کے لیے اس مفت تعلیمی پلیٹ فارم کو زیرو کاسٹ اسٹیٹک آرکیٹیکچر کے تحت تیار کیا ہے۔",
-        skills: ["HTML5 / CSS3", "JavaScript", "GitHub Pages", "Responsive UI"],
+        location: "Pakistan",
+        about: "Passionate web developer who designed and developed this zero-cost, responsive digital platform for the Jamia.",
+        skills: ["HTML5 / CSS3", "JavaScript", "GitHub Pages", "UI/UX Design"],
         khidmaat: [
-            "جامعہ عزیز المدارس کی آفیشل بائی لنگول ویب سائٹ کی تیاری",
-            "موبائل فرینڈلی اور تیز رفتار نظام کا نفاذ"
+            "Official Bilingual Web Platform Development",
+            "Responsive & Zero-Cost Architecture Setup"
         ],
         social: {
             github: "https://github.com/",
@@ -39,78 +36,74 @@ const siteData = {
         }
     },
 
-    // 4. Nisab / Courses List
     nisab: [
-        { name: "ابتدائیہ" },
-        { name: "حفظ و تجوید" },
-        { name: "متوسطہ" },
-        { name: "ثانویہ عامہ" },
-        { name: "ثانویہ خاصہ" },
-        { name: "عالیہ (فضیلت)" },
-        { name: "عالمیہ (تکمیل)" }
+        { name: "Ibtidaiyah" },
+        { name: "Hifz & Tajweed" },
+        { name: "Mutawassitah" },
+        { name: "Sanawiyah A'amma" },
+        { name: "Sanawiyah Khassa" },
+        { name: "Aliyah (Fazilah)" },
+        { name: "Alimiyah (Takmeel)" }
     ],
 
-    // 5. Gallery Images (Paste any direct image URL)
     gallery: [
         "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=600&q=80",
         "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80",
         "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80"
     ],
 
-    // 6. Categories (With Grades / Sub-categories)
     categories: [
         {
             id: "madrasa",
-            nameUr: "مدرسہ کا اپنا نصاب",
-            nameEn: "Madrasa Nisab",
+            nameUr: "Madrasa Curriculum",
+            nameEn: "Core Books & Notes",
             icon: "🏛️",
             hasGrades: true,
             grades: [
-                { id: "ibtidayiah", nameUr: "ابتدائیہ", nameEn: "Ibtidaiyah" },
-                { id: "hifz", nameUr: "حفظ و تجوید", nameEn: "Hifz & Tajweed" },
-                { id: "mutawassitah", nameUr: "متوسطہ", nameEn: "Mutawassitah" }
+                { id: "ibtidayiah", nameUr: "Ibtidaiyah", nameEn: "Basic Level" },
+                { id: "hifz", nameUr: "Hifz & Tajweed", nameEn: "Memorization" },
+                { id: "mutawassitah", nameUr: "Mutawassitah", nameEn: "Middle Level" }
             ]
         },
         {
             id: "wafaq",
-            nameUr: "وفاق المدارس",
-            nameEn: "Wifaq-ul-Madaris",
+            nameUr: "Wifaq-ul-Madaris",
+            nameEn: "Board Syllabi",
             icon: "📚",
             hasGrades: true,
             grades: [
-                { id: "sanawiyah-amma", nameUr: "ثانویہ عامہ", nameEn: "Sanawiyah A'amma" },
-                { id: "sanawiyah-khassa", nameUr: "ثانویہ خاصہ", nameEn: "Sanawiyah Khassa" },
-                { id: "fazilah", nameUr: "فضیلت (عالیہ)", nameEn: "Fazilah" },
-                { id: "takmeel", nameUr: "تکمیل (عالمیہ)", nameEn: "Takmeel" }
+                { id: "sanawiyah-amma", nameUr: "Sanawiyah A'amma", nameEn: "Metric Equivalent" },
+                { id: "sanawiyah-khassa", nameUr: "Sanawiyah Khassa", nameEn: "Intermediate" },
+                { id: "fazilah", nameUr: "Fazilah (Aliyah)", nameEn: "Graduation" },
+                { id: "takmeel", nameUr: "Takmeel (Alimiyah)", nameEn: "Masters Equivalent" }
             ]
         },
         {
             id: "aiou",
-            nameUr: "اے آئی او یو (AIOU)",
-            nameEn: "AIOU Programs",
+            nameUr: "AIOU Programs",
+            nameEn: "Contemporary Education",
             icon: "🎓",
             hasGrades: true,
             grades: [
-                { id: "matric", nameUr: "میٹرک", nameEn: "Matric" },
-                { id: "fa", nameUr: "ایف اے / ایف ایس سی", nameEn: "FA / FSC" },
-                { id: "ba", nameUr: "بی اے / بی ایس سی", nameEn: "BA / BSC" }
+                { id: "matric", nameUr: "Matric", nameEn: "Matriculation" },
+                { id: "fa", nameUr: "FA / FSC", nameEn: "Intermediate" },
+                { id: "ba", nameUr: "BA / BSC", nameEn: "Bachelors" }
             ]
         },
         {
             id: "apps",
-            nameUr: "پریمیم ایپس",
-            nameEn: "Premium Apps",
+            nameUr: "Premium Apps",
+            nameEn: "Islamic Tools & APKs",
             icon: "📱",
             hasGrades: false
         }
     ],
 
-    // 7. Uploaded Items (Books / Notes / Apps)
     items: [
         {
             id: "item1",
-            title: "تفسیر صاوی (مدرسہ نصاب)",
-            author: "علامہ صاوی رح",
+            title: "Tafsir Al-Sawi (Madrasa Course)",
+            author: "Allama Al-Sawi",
             categorySlug: "madrasa",
             gradeId: "mutawassitah",
             coverImage: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=300&q=80",
@@ -118,8 +111,8 @@ const siteData = {
         },
         {
             id: "item2",
-            title: "ہدایۃ النحو (وفاق المدارس)",
-            author: "مولوی رحمت اللہ",
+            title: "Hidayat-ul-Nahw (Wifaq)",
+            author: "Maulvi Rahmatullah",
             categorySlug: "wafaq",
             gradeId: "sanawiyah-amma",
             coverImage: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=300&q=80",
@@ -127,4 +120,3 @@ const siteData = {
         }
     ]
 };
-              
