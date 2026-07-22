@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مہتمم پروفائل - جامعہ عزیز المدارس</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">جامعہ عزیز المدارس</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">ہوم</a>
+                <a href="mohtamim.html" class="active">مہتمم</a>
+                <a href="developer.html">ڈویلپر</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="themeToggle" class="btn-toggle">🌙 ڈارک موڈ</button>
+                <button class="hamburger" id="hamburger">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mohtamim Profile Section -->
+    <main class="container" style="padding: 40px 0;">
+        <div class="profile-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 40px 20px; text-align: center; box-shadow: var(--shadow); max-width: 800px; margin: 0 auto;">
+            
+            <!-- Mohtamim Photo -->
+            <img id="mohtamimPhoto" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80" alt="Mohtamim Photo" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-gold); margin-bottom: 20px;">
+            
+            <!-- Name -->
+            <h1 id="mohtamimName" style="font-family: 'Amiri', serif; color: var(--primary-color); font-size: 2.2rem; margin-bottom: 10px;">حضرت مولانا مفتی صاحب</h1>
+            <p style="color: var(--accent-gold); font-weight: bold; margin-bottom: 20px;">مہتمم و شیخ الحدیث - جامعہ عزیز المدارس</p>
+
+            <!-- Social Media Row -->
+            <div id="mohtamimSocial" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
+                <!-- Social links will load dynamically -->
+            </div>
+
+            <!-- Taaruf (Bio) -->
+            <div style="text-align: right; margin-bottom: 30px; border-top: 1px solid var(--border-color); padding-top: 25px;">
+                <h2 style="color: var(--primary-color); font-family: 'Amiri', serif; margin-bottom: 15px;">تعارف (Taaruf)</h2>
+                <p id="mohtamimTaaruf" style="font-size: 1.1rem; line-height: 1.9; color: var(--text-color);">
+                    آپ جامعہ عزیز المدارس کے بانی اور مہتمم ہیں۔ آپ نے دینی علوم کی ترویج اور طلباء کی تربیت میں اپنی زندگی وقف کر رکھی ہے۔
+                </p>
+            </div>
+
+            <!-- Degrees / Achievements -->
+            <div style="text-align: right; border-top: 1px solid var(--border-color); padding-top: 25px;">
+                <h2 style="color: var(--primary-color); font-family: 'Amiri', serif; margin-bottom: 15px;">اسناد و کارنامے (Degrees & Achievements)</h2>
+                <ul id="mohtamimDegrees" style="padding-right: 20px; font-size: 1.1rem; line-height: 1.8;">
+                    <li>سنہ فراغت: وفاق المدارس العربيۃ پاکستان</li>
+                    <li>تخصص فی الفقہ الاسلامی والافتاء</li>
+                    <li>تدریس و تبلیغ کا 20 سال سے زائد کا تجربہ</li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3>عزیز المدارس</h3>
+                <p>تمام حقوق محفوظ ہیں © 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main Logic Script -->
+    <script src="data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof siteData !== 'undefined' && siteData.mohtamim) {
+                const m = siteData.mohtamim;
+                document.getElementById('mohtamimName').textContent = m.name;
+                document.getElementById('mohtamimPhoto').src = m.photo;
+                document.getElementById('mohtamimTaaruf').textContent = m.taaruf;
+                
+                // Render Degrees
+                const degList = document.getElementById('mohtamimDegrees');
+                if (m.degrees && m.degrees.length > 0) {
+                    degList.innerHTML = m.degrees.map(deg => `<li>${deg}</li>`).join('');
+                }
+            }
+
+            // Theme toggle script
+            const themeToggle = document.getElementById('themeToggle');
+            themeToggle.onclick = () => {
+                const html = document.documentElement;
+                const currentTheme = html.getAttribute('data-theme');
+                if (currentTheme === 'light') {
+                    html.setAttribute('data-theme', 'dark');
+                    themeToggle.textContent = '☀️ لائٹ موڈ';
+                } else {
+                    html.setAttribute('data-theme', 'light');
+                    themeToggle.textContent = '🌙 ڈارک موڈ';
+                }
+            };
+
+            // Mobile menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            hamburger.onclick = () => {
+                navLinks.classList.toggle('active');
+            };
+        });
+    </script>
+</body>
+</html>
